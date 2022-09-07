@@ -1,0 +1,1 @@
+web: gunicorn sportpredictor.wsgi:application --preload

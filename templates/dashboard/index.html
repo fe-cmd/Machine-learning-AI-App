@@ -1,0 +1,42 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% load crispy_forms_tags %}
+{% block content  %}
+<div class="container">
+    <div class="row mt-2">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow">
+                <div class="card-body">
+                    <div class="row">
+                    <div class="col">
+                      <h3 style="font-size: 20px; width: 200px;">Welcome to Engisol Machine-Learning-web app, your top machine learning 
+                      engineering platform. Kindly input your details while we redirect you to what you need by our 
+                      predictions about you, thanks.</h3>
+                    </div>
+                    <div class="col">
+                      <img src="{% static 'assets/img/mlgreet.jpg' %}" style="width: 200px; height: 200px;" alt="">
+                   </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow">
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <div class="flex">
+                          <input class="btn btn-info" type="submit" value="Make Prediction">
+                          <a href="/"><input class="btn btn-primary" value="Back to our home"></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
