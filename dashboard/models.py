@@ -13,7 +13,7 @@ GENDER = (
 class Data(models.Model):
     name = models.CharField(max_length=100, null=True)
     age = models.PositiveIntegerField(
-        validators=[MinValueValidator(13), MaxValueValidator(19)], null=True)
+        validators=[MinValueValidator(5), MaxValueValidator(65)], null=True)
     height = models.PositiveIntegerField(null=True)
     sex = models.PositiveIntegerField(choices=GENDER, null=True)
     predictions = models.CharField(max_length=100, blank=True)
